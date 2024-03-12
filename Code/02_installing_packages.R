@@ -4,9 +4,10 @@
 # install.packages("devtools")
 
 library(terra) # or require()
-library(devtools)+
+library(devtools)
 
 # install the imageRy package from GitHub
-devtools::install_github("ducciorocchini/imageRy")
+# a devtools function:
+# install_github("ducciorocchini/imageRy")
 
 library(imageRy)

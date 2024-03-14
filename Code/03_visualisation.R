@@ -36,7 +36,27 @@ plot(b4, col=clch)
 b8 <- im.import("sentinel.dolomites.b8.tif")
 plot(b8, col=clch)
 
+# multiframe
+par(mfrow=c(2,2))
+plot(b2, col=clch)
+plot(b3, col=clch)
+plot(b4, col=clch)
+plot(b8, col=clch)
 
+# Exercise
+# plot the four bands one after the other in a single row
+par(mfrow=c(1,4))
+plot(b2, col=clch)
+plot(b3, col=clch)
+plot(b4, col=clch)
+plot(b8, col=clch)
+
+# Let's make a satellite image
+stacksent <- c(b2, b3, b4, b8)
+plot(stacksent, col=clch)
+
+dev.off()
+plot(stacksent[[4]], col=clch)
 
 
 

@@ -1,3 +1,3 @@
 # Jamboard
 
-This folder contains jamboard plots discussed during lectures
+This folder contains ultrarough jamboard plots discussed during lectures

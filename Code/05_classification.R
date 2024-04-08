@@ -34,4 +34,43 @@ m2006c <- im.classify(m2006, num_clusters=2)
 # class 1 = human
 # class 2 = forest
 
+# frequencies
+f1992 <- freq(m1992c)
+
+# proportions
+tot1992 <- ncell(m1992c)
+prop1992 = f1992 / tot1992
+
+# percentages
+perc1992 = prop1992 * 100
+
+# 17% human, 83% forest
+
+# frequencies
+f2006 <- freq(m2006c)
+
+# proportions
+tot2006 <- ncell(m2006c)
+prop2006 = f2006 / tot2006
+
+# percentages
+perc2006 = prop2006 * 100
+
+# 1992: 17% human, 83% forest
+# 2006: 55% human, 45% forest
+
+# let's build a dataframe
+class <- c("forest", "human")
+p1992 <- c(83, 17)
+p2006 <- c(45, 55)
+
+tabout <- data.frame(class, p1992, p2006)
+tabout
+
+# plotting the output
+ggplot(tabout, aes(x=class, y=p1992, color=class)) + geom_bar
+
+ggplot(tabout, aes(x=class, y=y1992, color=class)) + geom_bar(stat="identity", fill="white")
+
+
 

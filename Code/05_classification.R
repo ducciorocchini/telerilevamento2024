@@ -1,10 +1,12 @@
 # quantifying land cover change
 
 # intsall.packages("ggplot2")
+# intsall.packages("patchwork")
 
 library(terra)
 library(imageRy)
 library(ggplot2)
+library(patchwork)
 
 im.list()
 
@@ -68,9 +70,17 @@ tabout <- data.frame(class, p1992, p2006)
 tabout
 
 # plotting the output
-ggplot(tabout, aes(x=class, y=p1992, color=class)) + geom_bar
+ggplot(tabout, aes(x=class, y=p1992, color=class)) + geom_bar(stat="identity", fill="white")
+ggplot(tabout, aes(x=class, y=p2006, color=class)) + geom_bar(stat="identity", fill="white")
 
-ggplot(tabout, aes(x=class, y=y1992, color=class)) + geom_bar(stat="identity", fill="white")
+# patchwork
+p1 <- ggplot(tabout, aes(x=class, y=p1992, color=class)) + geom_bar(stat="identity", fill="white")
+p2 <- ggplot(tabout, aes(x=class, y=p2006, color=class)) + geom_bar(stat="identity", fill="white")
+p1 + p2
 
+# varying axis and using lines
+p1 <- ggplot(tabout, aes(x=class, y=p1992, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+p2 <- ggplot(tabout, aes(x=class, y=p2006, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+p1 + p2
 
 

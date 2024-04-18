@@ -1,5 +1,7 @@
 # How to import external data in R
 
+install.packages("RNetCDF")
+library(RNetCDF) # needed to read Copernicus .nc data
 library(terra)
 library(imageRy)
 
@@ -32,5 +34,13 @@ cratere <- rast("cratere")
 im.plotRGB(cratere, 1, 2, 3)
 im.plotRGB(cratere, 2, 1, 3)
 
+# importing Copernicus data
+soil <- rast("c_gls_SSM1km_202404160000_CEURO_S1CSAR_V1.2.1.nc")
+plot(soil)
+plot(soil[[1]])
+
+# cropping data
+ext <- c(25, 35, 58, 62)
+soilcrop <- crop(soil, ext)
 
 

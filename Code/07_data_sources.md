@@ -20,7 +20,7 @@ https://land.copernicus.vgt.vito.be/PDF/portal/Application.html
 Download an image from the network
 
 ## Step 2:
-Store iot in your computer
+Store it in your computer
 
 ## Step 3:
 Set the working directory:

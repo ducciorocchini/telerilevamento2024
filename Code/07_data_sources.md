@@ -29,4 +29,5 @@ setwd("yourpath")
 ## Step 4:
 Import the data:
 library(terra)
+
 name <- rast("yourdata_in_the_working_directory")

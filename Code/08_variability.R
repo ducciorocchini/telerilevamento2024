@@ -18,7 +18,7 @@ im.plotRGB(sent, 1, 2, 3)
 im.plotRGB(sent, r=2, g=1, b=3)
 
 nir <- sent[[1]]
-cl <- colorRampPalette(c("black", "blue", "green", "yellow"))(4)
+cl <- colorRampPalette(c("red","orange","yellow"))(100)
 plot(nir, col=cl)
 
 sd3 <- focal(nir, matrix(1/9, 3, 3), fun=sd)

@@ -13,29 +13,36 @@ b8 <- im.import("sentinel.dolomites.b8.tif")
 
 sentdo <- c(b2, b3, b4, b8)
 
-im.plotRGB.user(sentdo, 4, 3, 2)
+im.plotRGB(sentdo, 4, 3, 2)
 
 pairs(sentdo)
 
 # PCA
 
 # 1. Sample
-sample <- spatSample(sentdo, 100)
-sample
+# sample <- spatSample(sentdo, 100)
+# sample
 
 # 2. PCA
-pca <- prcomp(sample)
+# pca <- prcomp(sample)
 
 # variance explained
-summary(pca)
+# summary(pca)
 
 # 3. PCA map
-pcmap <- predict(sentdo, pca, index=c(1:4))
+# pcmap <- predict(sentdo, pca, index=c(1:4))
+
+pcimage <- im.pca(sentdo)
+
+# [1] 1719.25654  626.98962   54.63642   34.92315
+tot <- sum(1719.25654,626.98962,54.63642,34.92315)
+1719.25654*100 / tot
+
 viridis <- colorRampPalette(viridis(7))(255)
-plot(pcmap, col=viridis)
+plot(pcimage, col=viridis)
 
 magma <- colorRampPalette(magma(7))(255)
-plot(pcmap, col=magma)
+plot(pcimage, col=magma)
 
 
 

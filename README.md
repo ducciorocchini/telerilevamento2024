@@ -24,6 +24,8 @@ No previous knowledge of R is required
 
 ## Main package used
 
+```{r}
+library(imageRy)
 ```
 
 
